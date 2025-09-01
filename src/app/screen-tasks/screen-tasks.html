@@ -43,7 +43,30 @@
             <span class="name" data-e2e="screen-tasks__task-name">{{ task.name }}</span>
             <duration data-e2e="screen-tasks__task-duration" [value]="task | map: taskDuration"></duration>
           </div>
-          <button-task-actions matListItemMeta [task]="task"></button-task-actions>
+          <div matListItemMeta class="task-actions">
+            @if (task | map: isTaskRunning) {
+              <button 
+                mat-icon-button 
+                type="button"
+                (click)="$event.stopPropagation(); $event.preventDefault(); stop(task.id)" 
+                matTooltip="Stop task"
+                data-e2e="screen-tasks__button-stop"
+              >
+                <mat-icon svgIcon="pause"></mat-icon>
+              </button>
+            } @else {
+              <button 
+                mat-icon-button 
+                type="button"
+                (click)="$event.stopPropagation(); $event.preventDefault(); start(task.id)" 
+                matTooltip="Start task"
+                data-e2e="screen-tasks__button-start"
+              >
+                <mat-icon svgIcon="play_arrow"></mat-icon>
+              </button>
+            }
+            <button-task-actions [task]="task"></button-task-actions>
+          </div>
         </a>
       </mat-nav-list>
     </cdk-virtual-scroll-viewport>

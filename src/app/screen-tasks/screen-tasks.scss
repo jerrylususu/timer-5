@@ -116,3 +116,9 @@ mat-nav-list {
   position: relative;
   top: 1px;
 }
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

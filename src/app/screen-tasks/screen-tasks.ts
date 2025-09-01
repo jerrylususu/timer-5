@@ -156,4 +156,12 @@ export default class ScreenTasksComponent {
   ) {
     if (session && fromTaskid) this.store.moveSessionToTask(fromTaskid, item.id, session);
   }
+
+  start(taskId: string) {
+    this.store.startTask(taskId, Date.now());
+  }
+
+  stop(taskId: string) {
+    this.store.stopTask(taskId, Date.now());
+  }
 }
