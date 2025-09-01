@@ -71,9 +71,6 @@ export class DurationComponent {
   );
   public readonly durationFragments = this.duration$.pipe(
     map(({ hours, minutes, seconds }): Fragment[] => {
-      if (hours === 0 && minutes === 0) {
-        return [{ value: seconds.toString(), unit: Unit.Seconds, dimmed: DimMode.None }];
-      }
       return [
         { value: hours.toString(), unit: Unit.Hours, dimmed: hours === 0 ? DimMode.All : DimMode.None },
         {
@@ -81,6 +78,7 @@ export class DurationComponent {
           unit: Unit.Minutes,
           dimmed: hours === 0 && minutes === 0 ? DimMode.All : minutes < 10 ? DimMode.First : DimMode.None,
         },
+        { value: pad2(seconds), unit: Unit.Seconds, dimmed: hours === 0 && minutes === 0 ? DimMode.None : DimMode.All },
       ];
     }),
     takeUntilDestroyed(),
