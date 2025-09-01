@@ -117,6 +117,16 @@ mat-nav-list {
   top: 1px;
 }
 
+.running-task {
+  background-color: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+  
+  &:hover {
+    background-color: var(--mat-sys-primary-container);
+    opacity: 0.9;
+  }
+}
+
 .task-actions {
   display: flex;
   align-items: center;
