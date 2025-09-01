@@ -11,10 +11,10 @@
       @for (session of sessions; track $index) {
       <tr class="mat-mdc-row mdc-data-table__row" data-e2e="dialog-split-session__session-row">
         <td class="mat-mdc-cell mdc-data-table__cell" data-e2e="dialog-split-session__session-start">
-          {{ session.start | date: 'yyyy-MM-dd H:mm' }}
+          {{ session.start | date: 'yyyy-MM-dd H:mm:ss' }}
         </td>
         <td class="mat-mdc-cell mdc-data-table__cell" data-e2e="dialog-split-session__session-end">
-          {{ session.end | date: 'yyyy-MM-dd H:mm' }}
+          {{ session.end | date: 'yyyy-MM-dd H:mm:ss' }}
         </td>
         <td class="mat-mdc-cell mdc-data-table__cell" data-e2e="dialog-split-session__session-duration">
           <duration [value]="session | map: sessionDuration"></duration>

@@ -29,10 +29,10 @@
         >
           <div *cdkDragPlaceholder></div>
           <td class="mat-mdc-cell mdc-data-table__cell" data-e2e="screen-task__session-start">
-            {{ item.start | date: 'yyyy-MM-dd H:mm' }}
+            {{ item.start | date: 'yyyy-MM-dd H:mm:ss' }}
           </td>
           <td class="mat-mdc-cell mdc-data-table__cell" data-e2e="screen-task__session-end">
-            {{ item.end | date: 'yyyy-MM-dd H:mm' }}
+            {{ item.end | date: 'yyyy-MM-dd H:mm:ss' }}
           </td>
           <td class="mat-mdc-cell mdc-data-table__cell" data-e2e="screen-task__session-duration">
             <duration [value]="item | map: sessionDuration"></duration>
